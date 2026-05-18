@@ -40,21 +40,10 @@ Avaliação de desempenho de comunicação cliente-servidor em jogos online util
 
 ## Resultados Iniciais (Localhost)
 
-Em testes realizados no ambiente local com 2 clientes simultâneos e 20 iterações cada, obtivemos os seguintes resultados:
+Testes serão realizados futuramente, em ambiente local com 2 clientes simultâneos e 20 iterações cada.
 
-- **Total de comandos enviados:** 40
-- **Latência Mínima:** 0.15ms
-- **Latência Máxima:** 2.38ms
-- **Latência Média:** 0.45ms
-- **Desvio Padrão:** 0.45ms
-
-Estes resultados demonstram a eficiência do protocolo TCP em redes locais, mantendo a latência bem abaixo dos limites perceptíveis para jogadores (geralmente < 50ms).
-
-## Próximas Etapas Sugeridas
+## Próximas Etapas
 
 - Simular latência artificial (atraso no servidor ou rede).
 - Testar com um número maior de clientes simultâneos.
 - Implementar comandos mais complexos e sincronização de estado.
-
-## Links
-- **GitHub:** [https://github.com/francysRDA/tcp-mine-sim](https://github.com/francysRDA/tcp-mine-sim)
