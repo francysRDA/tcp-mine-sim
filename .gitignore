@@ -216,3 +216,26 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Gradle/Fabric
+.gradle/
+build/
+run/
+out/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Logs
+logs/
+*.log
+crash-reports/
+
+# Métricas geradas
+metricas_minecraft*.csv
+
+# Sistema
+.DS_Store
+Thumbs.db
