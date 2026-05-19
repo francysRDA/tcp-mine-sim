@@ -239,3 +239,21 @@ metricas_minecraft*.csv
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Gradle/Fabric
+metricas-fabric/.gradle/
+metricas-fabric/build/
+metricas-fabric/bin/
+metricas-fabric/run/
+metricas-fabric/out/
+
+# Métricas e logs
+metricas_minecraft*.csv
+*.log
+logs/
+crash-reports/
+
+# IDE
+.idea/
+.vscode/
+*.iml

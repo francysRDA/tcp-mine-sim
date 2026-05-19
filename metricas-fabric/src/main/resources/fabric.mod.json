@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "metricasfabric",
+  "version": "1.0.0",
+  "name": "Metricas Fabric",
+  "description": "Salva métricas de ping, posição e chunks em CSV.",
+  "authors": ["Adriam"],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.adriam.metricas.MetricasClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": ">=1.21",
+    "fabric-api": "*"
+  }
+}

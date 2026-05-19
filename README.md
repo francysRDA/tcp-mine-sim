@@ -1,49 +1,42 @@
-# tcp-mine-sim
-# Avaliação de desempenho de comunicação cliente-servidor em jogos online utilizando TCP: simulação baseada no Minecraft
+# Avaliação de desempenho cliente-servidor em Minecraft
 
-Este projeto simula a comunicação cliente-servidor de um jogo online (inspirado em Minecraft) utilizando sockets TCP em Python. O objetivo é analisar o desempenho da comunicação, medindo a latência e o tempo de resposta em diferentes cenários.
+Este repositório contém os arquivos do projeto **Avaliação de desempenho de comunicação cliente-servidor em jogos online utilizando TCP: estudo baseado no Minecraft**.
+
+O objetivo do projeto é analisar métricas relacionadas à comunicação cliente-servidor em um ambiente multiplayer real baseado em Minecraft, utilizando um servidor com Fabric e conexão via Radmin VPN.
 
 ## Integrantes
+
 - Adriam Machado de Souza (Líder)
 - Francys Ribeiro dos Anjos
 - Antone Bilheri Salbego
 
-## Disciplina
-Redes de Computadores  
-Professor: Rodrigo Mansilha
+## Objetivo
 
-## Tema
-Avaliação de desempenho de comunicação cliente-servidor em jogos online utilizando TCP, com simulação baseada no Minecraft.
+Inicialmente, o projeto foi pensado como uma simulação simples utilizando sockets TCP em Python. Porém, durante o desenvolvimento, percebeu-se que uma simulação desse tipo não representaria adequadamente o funcionamento real de uma sessão multiplayer de Minecraft, principalmente em um servidor com mods.
 
-## Estrutura do Projeto
+Por isso, a proposta evoluiu para uma abordagem mais próxima do uso real: utilizar o próprio cliente Minecraft com Fabric e desenvolver um mod client-side para coletar métricas durante a jogatina.
 
-- `server.py`: Servidor TCP que gerencia múltiplas conexões de clientes e processa comandos simples.
-- `client.py`: Cliente TCP que se conecta ao servidor, envia comandos (movimentação, ping, chat) e mede a latência de cada resposta.
-- `performance_tests.py`: Script para automação de testes de desempenho com múltiplos clientes simultâneos.
+## Tecnologias utilizadas
 
-## Como Executar
+- Minecraft Java Edition
+- Fabric Loader
+- Fabric API
+- Fabric Loom
+- Gradle
+- Java
+- Radmin VPN
+- Python para análise posterior dos dados
+- CSV para armazenamento das métricas
 
-1. **Iniciar o Servidor:**
-   ```bash
-   python server.py
-   ```
+## Estrutura do projeto
 
-2. **Executar um Cliente Individual (Opcional):**
-   ```bash
-   python client.py
-   ```
-
-3. **Executar Testes de Desempenho:**
-   ```bash
-   python performance_tests.py
-   ```
-
-## Resultados Iniciais (Localhost)
-
-Testes serão realizados futuramente, em ambiente local com 2 clientes simultâneos e 20 iterações cada.
-
-## Próximas Etapas
-
-- Simular latência artificial (atraso no servidor ou rede).
-- Testar com um número maior de clientes simultâneos.
-- Implementar comandos mais complexos e sincronização de estado.
+```txt
+.
+├── bot-metricas/
+│   └── metricas-fabric/
+│       ├── src/
+│       ├── build.gradle
+│       ├── gradle.properties
+│       └── README.md
+├── README.md
+└── .gitignore
