@@ -53,6 +53,8 @@ Essa abordagem permite observar comportamentos relacionados à comunicação cli
 └── .gitignore
 
 
+---
+
 # Requisitos
 
 Para compilar o projeto é necessário possuir:
