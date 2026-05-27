@@ -51,7 +51,97 @@ Essa abordagem permite observar comportamentos relacionados à comunicação cli
 │   └── README.md
 ├── README.md
 └── .gitignore
+```
 
+---
+
+# Funcionalidades do mod
+
+O mod desenvolvido realiza coleta automática de métricas relacionadas ao desempenho do cliente e da comunicação com o servidor.
+
+Atualmente o sistema coleta:
+
+- Ping;
+- RTT estimado;
+- Coordenadas do jogador;
+- FPS;
+- Quantidade de chunks carregados;
+- Quantidade de entidades carregadas;
+- Velocidade de movimentação;
+- Uso de memória RAM.
+
+Os dados são armazenados automaticamente em arquivos CSV.
+
+---
+
+# Modos de coleta
+
+O mod possui dois modos de funcionamento.
+
+## 1. Monitoramento automático
+
+O monitoramento é iniciado automaticamente ao entrar em um mundo ou servidor.
+
+Os dados são armazenados em arquivos como:
+
+```txt
+metricas_monitoramento_2026-05-19_20-10-00.csv
+```
+
+Esse modo é utilizado para registrar toda a sessão de jogo.
+
+---
+
+## 2. Modo experimental
+
+O modo experimental pode ser ativado manualmente utilizando a tecla:
+
+```txt
+F9
+```
+
+Funcionamento:
+
+```txt
+F9 → iniciar experimento
+F9 → finalizar experimento
+```
+
+Quando ativo, os dados são armazenados separadamente em arquivos como:
+
+```txt
+metricas_experimento_2026-05-19_20-15-30.csv
+```
+
+Esse modo foi implementado para permitir experimentos mais controlados, reduzindo interferências causadas pelo carregamento inicial do mundo e possíveis efeitos de cache.
+
+---
+
+# Formato dos dados
+
+Exemplo de cabeçalho dos arquivos CSV:
+
+```csv
+timestamp,tipo_coleta,ping_ms,rtt_estimado_ms,pos_x,pos_y,pos_z,fps,chunks_carregados,entidades_carregadas,velocidade_blocos_s,ram_usada_mb,ram_total_mb
+```
+
+Exemplo de linha:
+
+```csv
+2026-05-19T20:15:30,experimento,18,18,-938.14,63.00,-339.07,145,190,246,4.42,2713,3808
+```
+
+---
+
+# Cenários de teste planejados
+
+| Cenário | Objetivo |
+|----------|-----------|
+| Jogador parado | Observar comportamento em baixa atividade |
+| Exploração de área já carregada | Avaliar pequenas variações |
+| Exploração de novos chunks | Avaliar aumento no tráfego de dados |
+| Múltiplos jogadores simultâneos | Verificar aumento da carga |
+| Regiões com muitas entidades | Avaliar sincronização entre cliente e servidor |
 
 ---
 
@@ -161,3 +251,61 @@ O Minecraft deve estar utilizando:
 - Fabric Loader;
 - Minecraft 1.21.11;
 - Java JDK 25.0.2.
+
+---
+
+# Como utilizar
+
+## Monitoramento automático
+
+Basta entrar no servidor.
+
+O arquivo CSV será criado automaticamente.
+
+---
+
+## Modo experimental
+
+1. Entrar no servidor;
+2. Esperar o ambiente estabilizar;
+3. Pressionar `F9`;
+4. Executar o cenário experimental;
+5. Pressionar `F9` novamente para finalizar.
+
+---
+
+# Análise dos dados
+
+Os arquivos CSV serão analisados posteriormente utilizando Python.
+
+As análises planejadas incluem:
+
+- média de ping;
+- máximo e mínimo de latência;
+- variação de FPS;
+- comparação entre cenários;
+- geração automática de gráficos.
+
+Bibliotecas Python planejadas:
+
+```bash
+pip install pandas matplotlib numpy
+```
+
+---
+
+# Créditos
+
+Este projeto foi desenvolvido utilizando como base a estrutura do:
+
+- Fabric Example Mod  
+https://github.com/FabricMC/fabric-example-mod
+
+Ferramentas utilizadas:
+
+- Fabric Loader
+- Fabric API
+- Fabric Loom
+- Gradle
+
+O código foi adaptado para fins acadêmicos com foco na coleta de métricas em um ambiente multiplayer baseado em Minecraft.
